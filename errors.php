@@ -43,16 +43,16 @@
 	$text = $language->get();
 
 //set defaults
-	if (!is_numeric($_POST['line_number'])) { $_POST['line_number'] = 0; }
-	if ($_POST['sort'] != 'asc' && $_POST['sort'] != 'desc') { $_POST['sort'] = 'asc'; }
-	if (!is_numeric($_POST['lines'])) { $_POST['lines'] = '10'; }
+	if (empty($_POST['line_number'])) { $_POST['line_number'] = 0; }
+	if (!empty($_POST['sort']) && $_POST['sort'] != 'asc' && $_POST['sort'] != 'desc') { $_POST['sort'] = 'asc'; }
+	if (empty($_POST['lines'])) { $_POST['lines'] = '10'; }
 
 //include the header
 	$document['title'] = $text['title-server_errors'];
 	require_once "resources/header.php";
 
 //show the content
-	$error_file = $_SESSION['server']['error']['text'].($_POST['log'] == 'previous' ? '.1' : null);
+	$error_file = $_SESSION['server']['error']['text'].(!empty($_POST['log']) && $_POST['log'] == 'previous' ? '.1' : null);
 	if (file_exists($error_file)) {
 
 		//colored lines
@@ -76,9 +76,9 @@
 			echo 		"<option value='previous' ".($_POST['log'] == 'previous' ? 'selected' : null).">".$text['label-previous']."</option>\n";
 		}
 		echo 		"</select>\n";
-		echo 		$text['label-filter']." <input type='text' name='filter' class='formfld' style='width: 150px; text-align: center; margin-right: 20px;' value=\"".escape($_POST['filter'])."\" onclick='this.select();'>";
+		echo 		$text['label-filter']." <input type='text' name='filter' class='formfld' style='width: 150px; text-align: center; margin-right: 20px;' value=\"".escape($_POST['filter'] ?? '')."\" onclick='this.select();'>";
 		echo 		"<label style='margin-right: 20px; margin-top: 4px;'><input type='checkbox' name='line_number' id='line_number' value='1' ".($_POST['line_number'] == 1 ? 'checked' : null)."> ".$text['label-line_numbers']."</label>";
-		echo 		"<label style='margin-right: 20px; margin-top: 4px;'><input type='checkbox' name='sort' id='sort' value='desc' ".($_POST['sort'] == 'desc' ? 'checked' : null)."> ".$text['label-sort']."</label>";
+		echo 		"<label style='margin-right: 20px; margin-top: 4px;'><input type='checkbox' name='sort' id='sort' value='desc' ".(!empty($_POST['sort']) && $_POST['sort'] == 'desc' ? 'checked' : null)."> ".$text['label-sort']."</label>";
 		echo 		$text['label-display']." <input type='text' class='formfld' style='width: 50px; text-align: center;' name='lines' maxlength='5' value=\"".escape($_POST['lines'])."\" onclick='this.select();'> : ".count($file_lines)." ".$text['label-lines'];
 		echo button::create(['type'=>'submit','label'=>$text['button-reload'],'icon'=>$_SESSION['theme']['button_icon_reload'],'style'=>'margin-left: 15px;','name'=>'submit']);
 		echo 		"</form>\n";
@@ -88,7 +88,7 @@
 
 		echo "<div id='file_content' style='max-height: 800px; overflow: auto; color: #aaa; background-color: #1c1c1c; border-radius: 4px; padding: 8px; text-align: left;'>\n";
 
-		if (is_array($file_lines) && sizeof($file_lines) > 0) {
+		if (!empty($file_lines) && sizeof($file_lines) > 0) {
 			echo "<span style='font-family: monospace;'>\n";
 			if ($_POST['filter'] != '') {
 				foreach ($file_lines as $index => $line) {
@@ -97,7 +97,7 @@
 					}
 				}
 			}
-			if (is_numeric($_POST['lines']) && $_POST['lines'] > 0) {
+			if (isset($_POST['lines']) && $_POST['lines'] > 0) {
 				$file_lines = array_slice($file_lines, -$_POST['lines'], $_POST['lines'], true);
 			}
 			if ($_POST['sort'] == 'desc') {
@@ -137,7 +137,7 @@
 	}
 
 // scroll to bottom of displayed lines, when appropriate
-	if ($_POST['sort'] != 'desc') {
+	if (!empty($_POST['sort']) && $_POST['sort'] != 'desc') {
 		echo "<script>\n";
 		//note: the order of the two lines below matters!
 		echo "	$('#file_content').scrollTop(Number.MAX_SAFE_INTEGER);\n"; //chrome
