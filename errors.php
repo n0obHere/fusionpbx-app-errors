@@ -46,6 +46,7 @@
 	if (empty($_POST['line_number'])) { $_POST['line_number'] = 0; }
 	if (!empty($_POST['sort']) && $_POST['sort'] != 'asc' && $_POST['sort'] != 'desc') { $_POST['sort'] = 'asc'; }
 	if (empty($_POST['lines'])) { $_POST['lines'] = '10'; }
+	if (empty($_POST['filter'])) { $_POST['filter'] = ''; }
 
 //include the header
 	$document['title'] = $text['title-server_errors'];
@@ -90,28 +91,31 @@
 
 		if (!empty($file_lines) && sizeof($file_lines) > 0) {
 			echo "<span style='font-family: monospace;'>\n";
-			if ($_POST['filter'] != '') {
+			if (!empty($_POST['filter'])) {
 				foreach ($file_lines as $index => $line) {
 					if (strpos($line, $_POST['filter']) == false) {
 						unset($file_lines[$index]);
 					}
 				}
 			}
-			if (isset($_POST['lines']) && $_POST['lines'] > 0) {
+			if (!empty($_POST['lines'])) {
 				$file_lines = array_slice($file_lines, -$_POST['lines'], $_POST['lines'], true);
 			}
-			if ($_POST['sort'] == 'desc') {
+			if (!empty($_POST['sort']) && $_POST['sort'] == 'desc') {
 				$file_lines = array_reverse($file_lines, true);
 			}
 			foreach ($file_lines as $index => $line) {
 				foreach ($filters as $filter) {
 					$pos = strpos($line, $filter['pattern']);
+					$filter_beg = '';
+					$filter_end = '';
 					if ($pos !== false){
 						$filter_beg = "<span style='color: ".$filter['color'].";'>";
 						$line = str_replace($_POST['filter'],"<span style='background-color: #ffd800; color: #ff6600; font-weight: bold;'>".$_POST['filter']."</span>", $line);
 						$filter_end = "</span>";
 					}
 				}
+				$line_num = '';
 				if ($_POST['line_number']) {
 					$line_num = "<span style='font-family: courier; color: #aaa; font-size: 11px;'>".($index + 1)."&nbsp;&nbsp;&nbsp;</span>";
 				}
@@ -128,7 +132,7 @@
 
 	}
 	else {
-		if ($_SESSION['server']['error']['text'] != '') {
+		if (!empty($_SESSION['server']['error']['text'])) {
 			echo "Server error log file not found at: ".$_SESSION['server']['error']['text'];
 		}
 		else {
@@ -136,7 +140,7 @@
 		}
 	}
 
-// scroll to bottom of displayed lines, when appropriate
+//scroll to bottom of displayed lines, when appropriate
 	if (!empty($_POST['sort']) && $_POST['sort'] != 'desc') {
 		echo "<script>\n";
 		//note: the order of the two lines below matters!
