@@ -74,7 +74,7 @@
 		echo "		<select class='formfld' name='log' style='margin-right: 20px; margin-top: 4px;'>\n";
 		echo 			"<option value='current'>".$text['label-current']."</option>\n";
 		if (file_exists($_SESSION['server']['error']['text'].'.1')) {
-			echo 		"<option value='previous' ".($_POST['log'] == 'previous' ? 'selected' : null).">".$text['label-previous']."</option>\n";
+			echo 		"<option value='previous' ".(!empty($_POST['log']) && $_POST['log'] == 'previous' ? 'selected' : null).">".$text['label-previous']."</option>\n";
 		}
 		echo 		"</select>\n";
 		echo 		$text['label-filter']." <input type='text' name='filter' class='formfld' style='width: 150px; text-align: center; margin-right: 20px;' value=\"".escape($_POST['filter'] ?? '')."\" onclick='this.select();'>";
