@@ -21,6 +21,9 @@ $text['title-server_errors']['ro-ro'] = "Erori de server";
 $text['title-server_errors']['ru-ru'] = "Ошибки сервера";
 $text['title-server_errors']['sv-se'] = "Serverfel";
 $text['title-server_errors']['uk-ua'] = "Помилки сервера";
+$text['title-server_errors']['zh-cn'] = "服务器错误";
+$text['title-server_errors']['ja-jp'] = "サーバーエラー";
+$text['title-server_errors']['ko-kr'] = "서버 오류";
 
 $text['label-syntax']['en-us'] = "Syntax Highlighted";
 $text['label-syntax']['en-gb'] = "Syntax Highlighted";
@@ -42,6 +45,9 @@ $text['label-syntax']['ro-ro'] = "Sintaxă evidențiată";
 $text['label-syntax']['ru-ru'] = "Выделение Синтаксиса";
 $text['label-syntax']['sv-se'] = "Syntax Markerad";
 $text['label-syntax']['uk-ua'] = "Підсвічування синтаксису";
+$text['label-syntax']['zh-cn'] = "语法突出显示";
+$text['label-syntax']['ja-jp'] = "強調表示された構文";
+$text['label-syntax']['ko-kr'] = "구문 강조";
 
 $text['label-sort']['en-us'] = "Sort Descending";
 $text['label-sort']['en-gb'] = "Sort Descending";
@@ -63,6 +69,9 @@ $text['label-sort']['ro-ro'] = "Sortează descrescător";
 $text['label-sort']['ru-ru'] = "Сортировка по убыванию";
 $text['label-sort']['sv-se'] = "Sortera Fallande";
 $text['label-sort']['uk-ua'] = "Сортувати за спаданням";
+$text['label-sort']['zh-cn'] = "降序排序";
+$text['label-sort']['ja-jp'] = "降順で並べ替え";
+$text['label-sort']['ko-kr'] = "내림차순 정렬";
 
 $text['label-open_file']['en-us'] = "Opening entire file...";
 $text['label-open_file']['en-gb'] = "Opening entire file...";
@@ -84,6 +93,9 @@ $text['label-open_file']['ro-ro'] = "Se deschide întregul fișier...";
 $text['label-open_file']['ru-ru'] = "Открытие всего файла";
 $text['label-open_file']['sv-se'] = "Öppnar hela filen";
 $text['label-open_file']['uk-ua'] = "відкрито весь файл";
+$text['label-open_file']['zh-cn'] = "打开整个文件...";
+$text['label-open_file']['ja-jp'] = "ファイル全体を開いています...";
+$text['label-open_file']['ko-kr'] = "전체 파일을 여는 중...";
 
 $text['label-open_at']['en-us'] = "opening at";
 $text['label-open_at']['en-gb'] = "opening at";
@@ -105,6 +117,9 @@ $text['label-open_at']['ro-ro'] = "deschidere la";
 $text['label-open_at']['ru-ru'] = "Открытие на";
 $text['label-open_at']['sv-se'] = "Öppnar vid";
 $text['label-open_at']['uk-ua'] = "відкрито о";
+$text['label-open_at']['zh-cn'] = "开幕于";
+$text['label-open_at']['ja-jp'] = "開店時間";
+$text['label-open_at']['ko-kr'] = "개점 시간";
 
 $text['header-server_errors']['en-us'] = "Server Errors";
 $text['header-server_errors']['en-gb'] = "Server Errors";
@@ -126,6 +141,9 @@ $text['header-server_errors']['ro-ro'] = "Erori de server";
 $text['header-server_errors']['ru-ru'] = "Ошибки сервера";
 $text['header-server_errors']['sv-se'] = "Serverfel";
 $text['header-server_errors']['uk-ua'] = "Помилки сервера";
+$text['header-server_errors']['zh-cn'] = "服务器错误";
+$text['header-server_errors']['ja-jp'] = "サーバーエラー";
+$text['header-server_errors']['ko-kr'] = "서버 오류";
 
 $text['label-line_numbers']['en-us'] = "Line Numbers";
 $text['label-line_numbers']['en-gb'] = "Line Numbers";
@@ -147,6 +165,9 @@ $text['label-line_numbers']['ro-ro'] = "Numere de linie";
 $text['label-line_numbers']['ru-ru'] = "Показывать номера строк";
 $text['label-line_numbers']['sv-se'] = "Visa Linje Nummer";
 $text['label-line_numbers']['uk-ua'] = "Нумерація рядків";
+$text['label-line_numbers']['zh-cn'] = "行号";
+$text['label-line_numbers']['ja-jp'] = "行番号";
+$text['label-line_numbers']['ko-kr'] = "줄 번호";
 
 $text['label-lines']['en-us'] = "Lines";
 $text['label-lines']['en-gb'] = "Lines";
@@ -168,6 +189,9 @@ $text['label-lines']['ro-ro'] = "Linii";
 $text['label-lines']['ru-ru'] = "Линии";
 $text['label-lines']['sv-se'] = "Rader";
 $text['label-lines']['uk-ua'] = "Лінії";
+$text['label-lines']['zh-cn'] = "线路";
+$text['label-lines']['ja-jp'] = "ライン";
+$text['label-lines']['ko-kr'] = "윤곽";
 
 $text['label-log']['en-us'] = "Log";
 $text['label-log']['en-gb'] = "Log";
@@ -189,6 +213,9 @@ $text['label-log']['ro-ro'] = "Buturuga";
 $text['label-log']['ru-ru'] = "Бревно";
 $text['label-log']['sv-se'] = "Logga";
 $text['label-log']['uk-ua'] = "Журнал";
+$text['label-log']['zh-cn'] = "日志";
+$text['label-log']['ja-jp'] = "ログ";
+$text['label-log']['ko-kr'] = "통나무";
 
 $text['label-current']['en-us'] = "Current";
 $text['label-current']['en-gb'] = "Current";
@@ -210,6 +237,9 @@ $text['label-current']['ro-ro'] = "Actual";
 $text['label-current']['ru-ru'] = "Текущий";
 $text['label-current']['sv-se'] = "Nuvarande";
 $text['label-current']['uk-ua'] = "поточний";
+$text['label-current']['zh-cn'] = "当前的";
+$text['label-current']['ja-jp'] = "現在";
+$text['label-current']['ko-kr'] = "현재의";
 
 $text['label-previous']['en-us'] = "Previous";
 $text['label-previous']['en-gb'] = "Previous";
@@ -231,6 +261,9 @@ $text['label-previous']['ro-ro'] = "Anterior";
 $text['label-previous']['ru-ru'] = "Предыдущий";
 $text['label-previous']['sv-se'] = "Tidigare";
 $text['label-previous']['uk-ua'] = "Попередній";
+$text['label-previous']['zh-cn'] = "以前的";
+$text['label-previous']['ja-jp'] = "前の";
+$text['label-previous']['ko-kr'] = "이전의";
 
 $text['label-filter']['en-us'] = "Filter";
 $text['label-filter']['en-gb'] = "Filter";
@@ -252,6 +285,9 @@ $text['label-filter']['ro-ro'] = "Filtru";
 $text['label-filter']['ru-ru'] = "Фильтр";
 $text['label-filter']['sv-se'] = "Filter";
 $text['label-filter']['uk-ua'] = "Фільтр";
+$text['label-filter']['zh-cn'] = "筛选";
+$text['label-filter']['ja-jp'] = "フィルター";
+$text['label-filter']['ko-kr'] = "필터";
 
 $text['label-display']['en-us'] = "Display";
 $text['label-display']['en-gb'] = "Display";
@@ -273,6 +309,9 @@ $text['label-display']['ro-ro'] = "Afişa";
 $text['label-display']['ru-ru'] = "Отображение последнего";
 $text['label-display']['sv-se'] = "Visar den sista";
 $text['label-display']['uk-ua'] = "Показувати останні";
+$text['label-display']['zh-cn'] = "展示";
+$text['label-display']['ja-jp'] = "画面";
+$text['label-display']['ko-kr'] = "표시하다";
 
 $text['error-open_file']['en-us'] = "Unable to open file!";
 $text['error-open_file']['en-gb'] = "Unable to open file!";
@@ -294,5 +333,8 @@ $text['error-open_file']['ro-ro'] = "Fisierul nu poate fi deschis!";
 $text['error-open_file']['ru-ru'] = "Невозможно открыть файл!";
 $text['error-open_file']['sv-se'] = "Kan inte öppna fil!";
 $text['error-open_file']['uk-ua'] = "Неможливо відкрити файл!";
+$text['error-open_file']['zh-cn'] = "无法打开文件！";
+$text['error-open_file']['ja-jp'] = "ファイルを開くことができません！";
+$text['error-open_file']['ko-kr'] = "열 수없는 파일!";
 
 ?>
