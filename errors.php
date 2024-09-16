@@ -83,10 +83,11 @@
 		echo "	<div style='clear: both;'></div>\n";
 		echo "</div>\n";
 
-		echo "<div id='file_content' style='max-height: 800px; overflow: auto; color: #aaa; background-color: #1c1c1c; border-radius: 4px; padding: 8px; text-align: left;'>\n";
+		echo "<div class='card'>\n";
+		echo "	<div id='file_content' style='max-height: 800px; overflow: auto; color: #aaa; background-color: #1c1c1c; border-radius: 4px; padding: 8px; text-align: left;'>\n";
 
 		if (!empty($file_lines) && sizeof($file_lines) > 0) {
-			echo "<span style='font-family: monospace;'>\n";
+			echo "	<span style='font-family: monospace;'>\n";
 			if (!empty($_POST['filter'])) {
 				foreach ($file_lines as $index => $line) {
 					if (strpos($line, $_POST['filter']) == false) {
@@ -117,13 +118,14 @@
 				}
 				echo $line_num." ".$filter_beg.$line.$filter_end."<br><br>";
 			}
-			echo "</span>\n";
+			echo "	</span>\n";
 		}
 		else {
-			echo "<center style='font-family: monospace;'><br>[ EMPTY FILE ]<br><br></center>";
+			echo "	<center style='font-family: monospace;'><br>[ EMPTY FILE ]<br><br></center>";
 		}
 
-		echo "	<span id='bottom'></span>\n";
+		echo "		<span id='bottom'></span>\n";
+		echo "	</div>\n";
 		echo "</div>\n";
 
 	}
