@@ -17,7 +17,7 @@
 
 	The Initial Developer of the Original Code is
 	Mark J Crane <markjcrane@fusionpbx.com>
-	Portions created by the Initial Developer are Copyright (C) 2008-2020
+	Portions created by the Initial Developer are Copyright (C) 2008-2025
 	the Initial Developer. All Rights Reserved.
 
 	Contributor(s):
@@ -49,7 +49,7 @@
 	require_once "resources/header.php";
 
 //show the content
-	$error_file = $_SESSION['server']['error']['text'].(!empty($_POST['log']) && $_POST['log'] == 'previous' ? '.1' : null);
+	$error_file = $settings->get('server','error').(!empty($_POST['log']) && $_POST['log'] == 'previous' ? '.1' : null);
 	if (file_exists($error_file)) {
 
 		//colored lines
@@ -69,7 +69,7 @@
 		echo "		".$text['label-log'];
 		echo "		<select class='formfld' name='log' style='margin-right: 20px; margin-top: 4px;'>\n";
 		echo 			"<option value='current'>".$text['label-current']."</option>\n";
-		if (file_exists($_SESSION['server']['error']['text'].'.1')) {
+		if (file_exists($settings->get('server','error').'.1')) {
 			echo 		"<option value='previous' ".(!empty($_POST['log']) && $_POST['log'] == 'previous' ? 'selected' : null).">".$text['label-previous']."</option>\n";
 		}
 		echo 		"</select>\n";
@@ -77,7 +77,7 @@
 		echo 		"<label style='margin-right: 20px; margin-top: 4px;'><input type='checkbox' name='line_number' id='line_number' value='1' ".($_POST['line_number'] == 1 ? 'checked' : null)."> ".$text['label-line_numbers']."</label>";
 		echo 		"<label style='margin-right: 20px; margin-top: 4px;'><input type='checkbox' name='sort' id='sort' value='desc' ".(!empty($_POST['sort']) && $_POST['sort'] == 'desc' ? 'checked' : null)."> ".$text['label-sort']."</label>";
 		echo 		$text['label-display']." <input type='text' class='formfld' style='width: 50px; text-align: center;' name='lines' maxlength='5' value=\"".escape($_POST['lines'])."\" onclick='this.select();'> : ".count($file_lines)." ".$text['label-lines'];
-		echo button::create(['type'=>'submit','label'=>$text['button-reload'],'icon'=>$_SESSION['theme']['button_icon_reload'],'style'=>'margin-left: 15px;','name'=>'submit']);
+		echo button::create(['type'=>'submit','label'=>$text['button-reload'],'icon'=>$settings->get('theme','button_icon_reload'),'style'=>'margin-left: 15px;','name'=>'submit']);
 		echo 		"</form>\n";
 		echo "	</div>\n";
 		echo "	<div style='clear: both;'></div>\n";
@@ -130,8 +130,8 @@
 
 	}
 	else {
-		if (!empty($_SESSION['server']['error']['text'])) {
-			echo "Server error log file not found at: ".$_SESSION['server']['error']['text'];
+		if (!empty($settings->get('server','error'))) {
+			echo "Server error log file not found at: ".$settings->get('server','error');
 		}
 		else {
 			echo "Server error log file path not defined in Settings.";
@@ -149,5 +149,3 @@
 
 //include the footer
 	require_once "resources/footer.php";
-
-?>
